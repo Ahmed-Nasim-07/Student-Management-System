@@ -1,0 +1,185 @@
+/* ===== Page Base ===== */
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f6f8;
+}
+
+/* ===== Navbar ===== */
+.navbar{
+    background:#007bff;
+    padding:15px 40px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:6px 10px;
+    border-radius:4px;
+}
+
+.navbar a:hover{
+    background:rgba(255,255,255,0.2);
+}
+
+/* ===== Page Container ===== */
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/* ===== Titles ===== */
+h1, h2{
+    text-align:center;
+}
+
+.subtitle{
+    text-align:center;
+    color:#555;
+    margin-bottom:30px;
+}
+
+/* ===== Dashboard Menu ===== */
+.menu{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+/* ===== Dashboard Cards ===== */
+.card{
+    background:white;
+    padding:30px;
+    width:220px;
+    text-align:center;
+    border-radius:10px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+    transition:0.2s;
+}
+
+.card a{
+    text-decoration:none;
+    color:#333;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.card p{
+    margin-top:10px;
+    font-size:14px;
+    color:#666;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* ===== Form Container ===== */
+form{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    width:380px;
+    margin:30px auto;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Form labels */
+label{
+    display:block;
+    margin-top:14px;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* Input boxes */
+input{
+    width:100%;
+    padding:10px;
+    margin-top:6px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+    font-size:14px;
+}
+
+/* Dropdown (for Department selection) */
+select{
+    width:100%;
+    padding:10px;
+    margin-top:6px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+    font-size:14px;
+    background:white;
+}
+
+/* Input focus */
+input:focus, select:focus{
+    outline:none;
+    border-color:#007bff;
+}
+
+/* Button */
+button{
+    margin-top:18px;
+    padding:11px;
+    width:100%;
+    background:#28a745;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+button:hover{
+    background:#218838;
+}
+
+/* ===== Tables ===== */
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    margin-top:20px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Table Header */
+th{
+    background:#007bff;
+    color:white;
+}
+
+/* Cells */
+th, td{
+    padding:10px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+/* Alternate Row Color */
+tr:nth-child(even){
+    background:#f9f9f9;
+}
+
+/* Row Hover */
+tr:hover{
+    background:#f1f7ff;
+}
+
+/* ===== Search Filters Layout ===== */
+.search-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}

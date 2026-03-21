@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Students</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<div class="navbar">
+<a href="/">Home</a>
+<a href="/students">Students</a>
+<a href="/courses">Courses</a>
+<a href="/marks">Marks</a>
+<a href="/attendance">Attendance</a>
+<a href="/search">Search</a>
+</div>
+<h1>Students</h1>
+
+<h2>Add Student</h2>
+
+<form action="/add_student" method="POST">
+
+<label>Student ID</label>
+<input type="number" name="studentID" required>
+
+<label>Name</label>
+<input type="text" name="name" required>
+
+<label>Age</label>
+<input type="number" name="age">
+
+<label>Phone</label>
+<input type="text" name="phone">
+
+<label>Department</label>
+<select name="deptID">
+<option value="1">Computer Science</option>
+<option value="2">Electronics and Communication</option>
+<option value="3">Mechanical</option>
+<option value="4">Electrical</option>
+<option value="5">Biomedical and Electronics</option>
+<option value="6">Electronics-VLSI Design</option>
+</select>
+
+<button type="submit">Add Student</button>
+
+</form>
+
+<h2>Student List</h2>
+
+<table id="studentTable">
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Phone</th>
+<th>DeptID</th>
+</tr>
+</thead>
+
+<tbody>
+    <tbody>
+{% for student in students %}
+<tr>
+<td>{{ student[0] }}</td>
+<td>{{ student[1] }}</td>
+<td>{{ student[2] }}</td>
+<td>{{ student[3] }}</td>
+<td>{{ student[4] }}</td>
+<td>
+<a href="/edit_student/{{ student[0] }}">Edit</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</tbody>
+
+</table>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

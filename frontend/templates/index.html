@@ -3,18 +3,18 @@
 
 <head>
 <title>Student Management System</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
 <div class="navbar">
-<a href="index.html">Home</a>
-<a href="students.html">Students</a>
-<a href="courses.html">Courses</a>
-<a href="marks.html">Marks</a>
-<a href="attendance.html">Attendance</a>
-<a href="search.html">Search</a>
+<a href="/">Home</a>
+<a href="/students">Students</a>
+<a href="/courses">Courses</a>
+<a href="/marks">Marks</a>
+<a href="/attendance">Attendance</a>
+<a href="/search">Search</a>
 </div>
 
 <div class="container">
@@ -29,22 +29,22 @@ A simple system to manage students, courses, marks, and attendance.
 <div class="menu">
 
 <div class="card">
-<a href="students.html">Students</a>
+<a href="/students">Students</a>
 <p>Manage student records</p>
 </div>
 
 <div class="card">
-<a href="courses.html">Courses</a>
+<a href="/courses">Courses</a>
 <p>Add and view courses</p>
 </div>
 
 <div class="card">
-<a href="marks.html">Marks</a>
+<a href="/marks">Marks</a>
 <p>Enter student marks</p>
 </div>
 
 <div class="card">
-<a href="attendance.html">Attendance</a>
+<a href="/attendance">Attendance</a>
 <p>Record attendance</p>
 </div>
 

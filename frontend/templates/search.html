@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Search</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+<a href="/">Home</a>
+<a href="/students">Students</a>
+<a href="/courses">Courses</a>
+<a href="/marks">Marks</a>
+<a href="/attendance">Attendance</a>
+<a href="/search">Search</a>
+</div>
+
+<div class="container">
+
+<h2>Student Search</h2>
+
+<form action="/search_results" method="POST">
+
+<div class="search-grid">
+
+<div>
+<label>Student Name</label>
+<input type="text" name="name">
+</div>
+
+<div>
+<label>Student ID</label>
+<input type="number" name="studentID">
+</div>
+
+<div>
+<label>Department ID</label>
+<input type="number" name="deptID">
+</div>
+
+<div>
+<label>Minimum Marks</label>
+<input type="number" name="marks">
+</div>
+
+</div>
+
+<button type="submit">Search Students</button>
+
+</form>
+
+<table id="resultTable">
+<thead>
+<tr>
+<th>Student ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Phone</th>
+<th>Department</th>
+<th>Course</th>
+<th>Marks</th>
+<th>Attendance (%)</th>
+</tr>
+</thead>
+
+<tbody>
+{% if results %}
+    {% for row in results %}
+    <tr>
+        <td>{{ row[0] }}</td>  <!-- StudentID -->
+        <td>{{ row[1] }}</td>  <!-- Name -->
+        <td>{{ row[2] }}</td>  <!-- Age -->
+        <td>{{ row[3] }}</td>  <!-- Phone -->
+        <td>{{ row[4] }}</td>  <!-- Department -->
+        <td>{{ row[5] or 'N/A' }}</td>  <!-- Course -->
+        <td>{{ row[6] or 'N/A' }}</td>  <!-- Marks -->
+        <td>{{ row[7] }}%</td>        <!-- Attendance Percentage -->
+    </tr>
+    {% endfor %}
+{% endif %}
+</tbody>
+
+</table>
+
+</div>
+
+<script src="search.js"></script>
+
+</body>
+</html>

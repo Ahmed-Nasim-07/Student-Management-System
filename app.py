@@ -82,6 +82,22 @@ def add_marks():
     courseID = request.form['courseID']
     marks = request.form['marks']
 
+    cursor.execute("SELECT * FROM Student WHERE StudentID = %s", (studentID,))
+    student = cursor.fetchone()
+
+    if not student:
+        cursor.execute("SELECT * FROM Marks")
+        data = cursor.fetchall()
+        return render_template('marks.html', marks=data, error="Invalid Student ID!")
+
+    cursor.execute("SELECT * FROM Course WHERE CourseID = %s", (courseID,))
+    course = cursor.fetchone()
+
+    if not course:
+        cursor.execute("SELECT * FROM Marks")
+        data = cursor.fetchall()
+        return render_template('marks.html', marks=data, error="Invalid Course ID!")
+
     query = "INSERT INTO Marks (StudentID, CourseID, Marks) VALUES (%s, %s, %s)"
     values = (studentID, courseID, marks)
 

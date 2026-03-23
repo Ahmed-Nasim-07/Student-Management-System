@@ -96,13 +96,41 @@ def add_attendance():
     date = request.form['date']
     status = request.form['status']
 
+    def check_exists(table, column, value):
+        cursor.execute(f"SELECT 1 FROM {table} WHERE {column} = %s", (value,))
+        return cursor.fetchone() is not None
+
+    # Always fetch attendance data
+    cursor.execute("SELECT * FROM Attendance")
+    attendance_data = cursor.fetchall()
+
+    if not check_exists("Student", "StudentID", studentID):
+        return render_template(
+            'attendance.html',
+            error="Invalid StudentID entered",
+            attendance=attendance_data,
+            studentID=studentID,
+            date=date,
+            status=status
+        )
+
     query = "INSERT INTO Attendance (StudentID, Date, Status) VALUES (%s, %s, %s)"
     values = (studentID, date, status)
 
-    cursor.execute(query, values)
-    db.commit()
+    try:
+        cursor.execute(query, values)
+        db.commit()
+        return redirect('/attendance')
+    except Exception as e:
+        return render_template(
+            'attendance.html',
+            error=f"An error occurred: {str(e)}",
+            attendance=attendance_data,
+            studentID=studentID,
+            date=date,
+            status=status
+        )
 
-    return redirect('/attendance')
 
 @app.route('/search_results', methods=['POST'])
 def search_results():
